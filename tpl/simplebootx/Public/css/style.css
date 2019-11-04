@@ -1,0 +1,129 @@
+﻿/*所有样式要写在@media样式前面*/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html{ color:#000; background:#fff; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ margin:0; padding:0;}
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{ font:12px/1.5 tahoma,arial,\5b8b\4f53; font-family:'微软雅黑', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;} 
+input,select,textarea{ font-size:100%;}
+/* 去掉各Table cell 的边距并让其边重合 */
+table{ border-collapse:collapse;border-spacing:0;}
+/* IE bug fixed: th 不继承 text-align*/
+th{ text-align:inherit;}
+/* 对齐是排版最重要的因素, 别让什么都居中 */ 
+caption,th { text-align:left; }
+/* 去除默认边框 */
+fieldset,img{ border:0;}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{ display:block;}
+/* 去掉列表前的标识, li 会继承 */
+ol,ul,li{ list-style:none;}
+/* 一致的 del 样式 */
+del{ text-decoration:line-through; }
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:500;}
+q:before,q:after {content:'';}
+/* 统一上标和下标 */
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+/* 默认不显示下划线，保持页面简洁 */
+ins,a{ text-decoration:none;}
+/* 清理浮动 */
+.clearFloat:after{visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0;}
+.clearFloat{ zoom:1; /* for IE6 IE7 */}
+/* 设置内联, 减少浮动带来的bug */
+.floatLeft, .floatRight{ display:inline;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block;}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video{ display: inline-block;*display: inline;*zoom: 1;}
+/* 去掉 firefox 下此元素的边框  t 35  l 5*/
+abbr,acronym{ border:0;font-variant:normal;}
+address,caption,cite,code,dfn,em,th,var{ font-style:normal; font-weight:500;}
+html,body{}
+
+
+
+.v_out{width:940px;overflow:hidden; float:left; margin-top:15px;}
+.v_show{width:940px;overflow:hidden;position:relative;height:350px;float:left}
+.v_cont{ width:6650px;position:absolute;left:0px;top:0px;}
+.v_cont ul{float:left;text-align:center;line-height:50px;}
+.v_cont ul li{width:940px;height:350px;background:#f8f8f8;float:left;margin-top:3px;}
+
+/*---圆圈---*/
+.v_out_p{position:relative;overflow:visible}
+.circle{position:absolute;left: 40px;top:290px;}
+.circle li{width:20px;height:20px;float:left;margin-right:10px;background:#ccc}
+.circle .circle-cur{background:#f00}
+
+/*---切换---*/
+.prev,.next{  position:absolute; top:145px; z-index:99;}
+.prev a{background-image:url(../images/left.png); background-repeat:no-repeat; background-size:100% 100%;}
+.prev .ico_1{ background:url(input_a.gif) no-repeat 0 -3757px;}
+
+.next a{ background-image:url(../images/right.png); background-repeat:no-repeat; background-size:100% 100%;}
+.next .ico_2{background:url(input_a.gif) no-repeat right -3757px;}
+.prev,.prev a,.next,.next a{width:50px;height:50px; display:block; position:absolute;}
+.prev{ left:10px;}
+.next{right:10px;}
+
+
+.hanghang-box{ width:100%; background-size:cover;}
+.hanghang-top{ width:1210px; margin:0 auto;}
+.hanghang-top>h1{ float:left; line-height:48px; height:50px; width:40px; font-size:20px;}
+.hanghang-search{ float:left; margin-left:260px;}
+.hanghang-search>form>input{ width:250px; height:30px; margin:8px 0px; float:left;}
+.hanghang-search-btn{ width:40px; float:left; text-align:center; height:34px; background-color:#638eae; color:#fff; margin:8px 0px; line-height:34px; border: none;}
+.hanghang-top-nav{ float:right;}
+.hanghang-top-nav>a>li{ float:left; line-height:50px; font-size:18px; margin-left:60px; color:#000;}
+.hanghang-bg{ background-image:url(../images/bg.jpg);}
+
+.hanghang-content{ width:1210px; margin:0 auto;}
+.hanghang-user{ width:250px; height:350px; margin-top:15px; float:right; background-image:url(../images/user.png); background-size:100% 100%;}
+.hanghang-user-logo{ width:150px; margin:20px auto;}
+.hanghang-user-logo img{ width:150px;}
+.hanghang-user-font{ width:90%; margin:0 auto; color:#000000; font-size:16px;}
+.hanghang-user-font p{ margin-top:10px;}
+.hanghang-user-font p:first-child{ margin-top:0px;}
+
+.hanghang-list{ width:100%; background-image:url(../images/bgs.png); margin-top:15px; }
+.hanghang-list li{ width:100%; text-align:center; height:50px; line-height:50px; border-bottom:2px solid #c4b8b0; font-size:16px; overflow:hidden; color:#000;}
+.hanghang-list-name{ width:30%; float:left;}
+.hanghang-list-num{ width:40%; float:left;}
+.hanghang-list-zuozhe{ width:30%; float:left;}
+.hanghang-list-first{color:#666666; font-size:16px;}
+.hanghang-page{ margin:0 auto;}
+.hanghang-page li{ float:left; width:auto; border:none; padding:0px 10px;}
+
+.hanghang-list-name-4{ width:35%; float:left;}
+.hanghang-list-num-4{ width:15%; float:left;}
+.hanghang-list-zuozhe-4{ width:25%; float:left;}
+.hanghang-list-zuozhe2-4{ width:25%; float:left;}
+
+
+.hanghang-za{ width:1210px; background-image:url(../images/bgs.png); float:left; margin-top:15px; margin-bottom:15px; border-radius:10px;}
+.hanghang-za-title{ width:95%; margin:0 auto; height:45px; line-height:45px; font-size:18px; border-bottom:2px solid #aca9a6; padding:0px 2.5%;}
+.hanghang-za-content{width:95%;padding:15px 2.5%; font-size:16px;}
+.hanghang-za-content img{ max-width:100%;}
+
+.hanghang-shupu-content{width:95%;padding:15px 2.5%; padding-bottom:0px;}
+.hanghang-shupu-content li{ float:left; padding:5px 10px; border:2px solid #c4b8b0; font-size:16px; border-radius:5px; margin-right:15px; margin-bottom:15px;}
+.hanghang-shupu-content li:hover{ background-color:#c4b8b0; color:#fff;}
+.hanghang-shupu-content a{ color:#000}
+.shupu-content-li-color{background-color:#c4b8b0; color:#fff;}
+
+
+.hanghang-shu-content{width:95%;padding:15px 2.5%;}
+.hanghang-shu-content-img{ width:165px; height:225px; float:left;}
+.hanghang-shu-content-img img{ width:165px; height:225px;}
+.hanghang-shu-content-font{ float:left; margin-left:15px; font-size:16px; line-height:30px; width:965px;}
+
+.hanghang-shu-content-btn{ float:left; margin-left:207px;}
+.hanghang-shu-content-btns,.hanghang-shu-content-btns2{ padding:10px 20px; font-size:18px; float:left; margin-right:20px; border:2px solid #c2bab5;}
+.hanghang-shu-content-btns{ background-color:#fff; color:#000;}
+.hanghang-shu-content-btns2{ background-color:#b7a29c; color:#000;}
+.hanghang-shu-content-btn p{ float:left; line-height:51px; color:#ff0000; font-size:16px;}

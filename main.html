@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            免费电子书下载、分享。包括mobi、epud、pdf、txt格式，kindle电子书下载
+        </title>
+        <meta name="keywords" content="免费电子书下载、分享。包括mobi、epud、pdf、txt格式，kindle电子书下载 "
+        />
+        <meta name="description" content="优质的epud,mobi,pdf,txt电子书下载和分享的网站"
+        />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        <link href="tpl/simplebootx/Public/css/style.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/paging.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/paging.js"></script>
+        <script src="tpl/simplebootx/Public/js/jcjquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                    $('#voidpush').on('submit', function(){
+                            event.preventDefault() //阻止form表单默认提交
+                    })
+                    url = 'http://129.28.185.23/book/book_number.php'
+                    $.get(url, function(data, status){
+                        var setTotalCount = data;
+                        var page = setTotalCount / 12;
+                        page = Math.ceil(page);
+	$('#box').paging({
+		initPageNo: 1, // 初始页码
+		totalPages: page, //总页数
+		totalCount: '合计' + setTotalCount + '条数据', // 条目总数
+		slideSpeed: 600, // 缓动速度。单位毫秒
+		jump: true, //是否支持跳转
+		callback: function(page) { // 回调函数
+        var url = "http://129.28.185.23/book/book_list.php?page=" + page;
+		$.get(url, function(data,status){
+            $(".book-list").html(data);
+		});
+		}
+	});
+    });
+                    $(".hanghang-search-btn").click(function(){
+                        var url = "http://129.28.185.23/book/book_search.php";
+                        var data = $("#keyword").val();
+                        var param = '{"title":"' + data + '"}';
+                        $.post(url, param, function(res){
+                            $(".book-list").html(res);
+                            $("#box-pre").html("");
+                            });
+                        });
+
+});
+        </script>
+        <!-- ireadweek.com Baidu tongji analytics -->
+    </head>
+    <body>
+        <header class="site-header navbar-fixed-top" id="header">
+            <div class="hanghang-box" style="background-color:#eef0ef; height:50px;">
+                <div class="hanghang-top">
+                    <h1 style="width: auto">
+                    <a href="/book/main.html">
+                        电子书分享
+                    </a>
+                    </h1>
+                    <ul class="hanghang-top-nav">
+                        <a href="/book/main.html">
+                            <li>
+                                首页
+                            </li>
+                        </a>
+                        <a href="/">
+                            <li>
+                                书籍分类
+                            </li>
+                        </a>
+                    </ul>
+                    <div class="hanghang-search">
+                        <form action="/book/book_search.php", method="post", id="voidpush">
+                            <input type="text" class="input" name="title" id="keyword" onblur="if(this.value == '')this.value='请输入关键词';"
+                            onclick="if(this.value == '请输入关键词')this.value='';" value="请输入关键词" />
+                            <button class="hanghang-search-btn" style="margin-left: 10px">
+                                搜索
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="hanghang-box hanghang-bg">
+            <div class="hanghang-content">
+                <div class="clearFloat">
+                </div>
+                <ul class="hanghang-list">
+                    <li class="hanghang-list-first">
+                        <div class="hanghang-list-name">
+                            书籍
+                        </div>
+                        <div class="hanghang-list-num">
+                            豆瓣评分
+                        </div>
+                        <div class="hanghang-list-zuozhe">
+                            作者
+                        </div>
+                        <div class="clearFloat">
+                        </div>
+                    </li>
+                    <div class="book-list"></div>
+                </ul>
+                <br>
+                <div id="box-pre">
+                <div class="box" id="box"></div>
+                </div>
+            </body>
+        </html>
